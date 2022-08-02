@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function letterCounter(){
+        var word = document.getElementById("woord").value;
+        var letter = document.getElementById("letter").value;
+
+        var correctInput = errorCheck(word, letter);
+
+        if(correctInput){
+            var amount = 0;
+            for(var i = 0; i < word.length; i++){
+                if(letter == word[i]){
+                    amount += 1;
+                }
+            } 
+
+            document.getElementById("Uitkomst").innerHTML = "In de woord \"" + word + "\" komt de letter \"" + letter +"\" " + amount + " keer voor.";
+        }
+    }
+
+    function errorCheck(wordInput, letterInput){
+        if(wordInput.length<1){
+            alert("Typ een woord in!");
+            return false;
+        }else{
+            
+
+            if(letterInput.length!=1 && letterInput.match(/[a-z]/i)){
+                alert("Typ een letter in!");
+                return false;
+            }
+            
+            return true;
+        }    
+    }
+</script>
+<body>
+    <input type="text" id="woord">
+    <input type="text" id="letter">
+    <button id="button" onclick="letterCounter()"></button>
+    <div id="Uitkomst"></div>
+</body>
+</html>

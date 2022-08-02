@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function groeten(){
+        if(event.key === "Enter"){
+            var text = document.getElementById("groet").value;
+
+            if(text.toLowerCase() == "hallo"){
+                alert("Welkom")
+            }else if(text.toLowerCase() == "doei"){
+                alert("Tot de volgende keer!")
+            }
+        }
+    }
+</script>
+<body>
+    <input type="text" id="groet" value="Zeg hallo of doei!" onkeydown="groeten(this)">
+</body>
+</html>

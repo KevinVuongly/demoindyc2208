@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var duplicateC = 0;
+
+    function clickListener(button){
+        document.getElementById("row").innerHTML += "U heeft op de knop " + button + " geklikt. <br>";
+
+        if(button=="C"){
+            duplicateC += 1;
+
+            if(duplicateC > 1){
+                alert("Je hebt al " + duplicateC + " keer op C geklikt.");
+            }
+        }
+
+        
+    }
+</script>
+<body>
+    <div id="row">
+        <button id="A" value="A" onclick="clickListener(value)">A</button>
+        <button id="B" value="B" onclick="clickListener(value)">B</button>
+        <button id="C" value="C" onclick="clickListener(value)">C</button>
+        <button id="D" value="D" onclick="clickListener(value)">D</button><br>
+    </div>
+</body>
+</html>
