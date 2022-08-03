@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var winter = "https://www.lesgets.com/app/uploads/2021/01/2020_12_29_raquettes_lassarre_Les_Gets_Mel_Carle_IMG_3272.jpg";
+    var lente = "https://thumbs.dreamstime.com/b/spring-bloemen-op-4993637.jpg";
+    var zomer = "https://blog.bungalowspecials.nl/wp-content/uploads/sites/14/2010/05/Blog_vakantie-tips.jpg";
+    var herfst = "https://www.nationaalparkhogekempen.be/sites/default/files/styles/side_photo/public/images/photo_text/autumn_forest_1569222828.jpg?itok=ehBk_vZ9";
+    var lammetjes = "https://i.regiogroei.cloud/552x310/fcf8ed01-5201-33eb-9fa6-3bd93b3fce9b.jpg"
+    
+    var currentSeason = 0;
+    var seizoenen = [winter, lente, zomer, herfst];
+
+    // update image
+    function updateImage(){
+        var image = document.getElementById("image");
+
+        currentSeason += 1;
+        currentSeason = currentSeason%4;
+
+        image.setAttribute(
+                "src",
+                seizoenen[currentSeason]
+            );
+
+        // lente
+        if(currentSeason==1){
+            var lammetjesImage = document.createElement("img");
+            lammetjesImage.setAttribute("id", "lammetjes");
+            lammetjesImage.setAttribute("src", lammetjes);
+            lammetjesImage.setAttribute("height", "250");
+            lammetjesImage.setAttribute("width", "250");
+            document.getElementById("row").appendChild(lammetjesImage);
+        }else{
+            var lammetjesImage = document.getElementById("lammetjes");
+            lammetjesImage.remove();
+        }
+    }
+
+</script>
+<body>
+    <div id="row">
+        <img src="https://www.lesgets.com/app/uploads/2021/01/2020_12_29_raquettes_lassarre_Les_Gets_Mel_Carle_IMG_3272.jpg" id="image" height="250px" width="250px", onclick=updateImage()>
+    </div>
+</body>
+</html>

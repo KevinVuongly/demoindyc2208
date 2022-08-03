@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var winter = "https://www.lesgets.com/app/uploads/2021/01/2020_12_29_raquettes_lassarre_Les_Gets_Mel_Carle_IMG_3272.jpg";
+    var lente = "https://thumbs.dreamstime.com/b/spring-bloemen-op-4993637.jpg";
+    var zomer = "https://blog.bungalowspecials.nl/wp-content/uploads/sites/14/2010/05/Blog_vakantie-tips.jpg";
+    var herfst = "https://www.nationaalparkhogekempen.be/sites/default/files/styles/side_photo/public/images/photo_text/autumn_forest_1569222828.jpg?itok=ehBk_vZ9";
+
+    var seizoenen = [winter, lente, zomer, herfst];
+
+    var buttonClicks = 0;
+
+    function seasonProgress(){
+        buttonClicks += 1;
+
+        // image does not exist yet, create an image
+        if(document.getElementById("Image") == null){
+            console.log(seizoenen[buttonClicks]);
+            var image = document.createElement('img');
+            image.setAttribute("id", "Image");
+            image.setAttribute(
+                "src",
+                seizoenen[buttonClicks]
+            );
+            image.setAttribute("height", "500px");
+            image.setAttribute("width", "500px");
+
+            document.getElementById("row").appendChild(image);
+        }
+        // image exists, switch to another image
+        else{
+            image = document.getElementById("Image");
+            image.setAttribute(
+                "src",
+                seizoenen[buttonClicks%4]
+            );
+        }
+
+
+        if (buttonClicks % 4 == 1){
+            document.getElementById("jaargang").innerHTML = "We zijn " + Math.floor(buttonClicks/4) + " jaar verder.";
+        }
+    }
+</script>
+<body>
+    <div id="row">
+        <button id="knop" onclick=seasonProgress()>3 Maanden verder? Klik hier</button>
+        <p id="jaargang"></p>
+    </div>
+</body>
+</html>

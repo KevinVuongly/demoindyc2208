@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var winter = "https://www.lesgets.com/app/uploads/2021/01/2020_12_29_raquettes_lassarre_Les_Gets_Mel_Carle_IMG_3272.jpg";
+    var lente = "https://thumbs.dreamstime.com/b/spring-bloemen-op-4993637.jpg";
+    var zomer = "https://blog.bungalowspecials.nl/wp-content/uploads/sites/14/2010/05/Blog_vakantie-tips.jpg";
+    var herfst = "https://www.nationaalparkhogekempen.be/sites/default/files/styles/side_photo/public/images/photo_text/autumn_forest_1569222828.jpg?itok=ehBk_vZ9";
+
+    var seizoenen = [winter, lente, zomer, herfst];
+    var amountOfImages=2;
+
+    // update image
+    function updateImage(id){
+        var image = document.getElementById(id);
+
+        var value = parseInt(image.getAttribute("value"));    
+        value += 1;
+        value = value%4;
+
+        image.setAttribute(
+                "src",
+                seizoenen[value]
+            );
+        image.setAttribute("value", value)
+    }
+
+    //compare images
+    function compareImages(){
+        var image1 = document.getElementById(0);
+        var image2 = document.getElementById(1);
+
+        var valueImage1 = parseInt(image1.getAttribute("value"));
+        var valueImage2 = parseInt(image2.getAttribute("value"));
+
+        if(valueImage1==valueImage2){
+            console.log("HETZELFDE");
+        }else{
+            console.log("NIET HETZELFDE");
+        }
+    }
+</script>
+<body>
+    <div id="row">
+        <img src="https://www.lesgets.com/app/uploads/2021/01/2020_12_29_raquettes_lassarre_Les_Gets_Mel_Carle_IMG_3272.jpg" id="0" value=0 height="250px" width="250px">
+        <img src="https://www.lesgets.com/app/uploads/2021/01/2020_12_29_raquettes_lassarre_Les_Gets_Mel_Carle_IMG_3272.jpg" id="1" value=0 height="250px" width="250px">
+        <br>
+        <button id="A" value=0 onclick=updateImage(value)>A</button>
+        <button id="B" value=1 onclick=updateImage(value)>B</button>
+        <button id="C" onclick=compareImages()>C</button>
+    </div>
+</body>
+</html>
